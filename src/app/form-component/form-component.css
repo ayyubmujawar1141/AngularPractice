@@ -1,0 +1,11 @@
+.alert{
+    color:white;
+    margin-bottom: 5px;
+    text-align: left;
+    
+}
+.alert-danger{
+    background-color: #f44336;
+    padding-bottom: 0%;
+    padding-top: 3%;
+}

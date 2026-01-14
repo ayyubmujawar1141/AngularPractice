@@ -1,0 +1,10 @@
+<div class="container">
+    <h2>Sign up</h2>
+    <input type="text" placeholder="Name" (ngmodel)="signupData.name">
+    <br>
+    <input type="email" placeholder="Email" (ngModel)="signupData.email">
+    <br>
+    <input type="password" placeholder="Password" (ngModel)="signupData.password">
+    <br>    
+    <button (click)="signup()">Sign up</button>
+</div>

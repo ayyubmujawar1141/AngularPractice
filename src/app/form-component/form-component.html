@@ -1,0 +1,41 @@
+<div class="container mt-4 col-md-4  bg-dark-subtle text-dark p-4 rounded">
+    <h3 class="text-center">User Registration</h3>
+    <form (ngSubmit) = "onSubmit(userForm)" #userForm="ngForm">
+        <div class="form-group">
+            <label class="fs-5" for="firstName">FirstName</label><br>
+            <input #firstname="ngModel" required  minlength="3" maxlength="8" type="text" name="firstname"class="form-control" ngModel>
+            <div *ngIf="firstname.touched && firstname.invalid" class="alert alert-danger">
+                <p *ngIf="firstname.errors?.['required']">FirstName required</p>
+                <p *ngIf="firstname.errors?.['minlength']">Sorry, FirstName is too short</p>
+            </div>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label class="fs-5" for="lastName">LastName</label><br>
+            <input #lastname="ngModel" minlength="3" maxlength="10" required type="text" name="lastName" class="form-control"ngModel>
+            <div *ngIf="lastname.touched && lastname.invalid" class="alert alert-danger">
+                <p *ngIf="lastname.errors?.['required']">Lastname required</p>
+                <p *ngIf="lastname.errors?.['minlength']">Sorry, Lastname is too short</p>
+            </div>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label class="fs-5" for="email">Email</label><br>
+            <input #Email="ngModel"required maxlength="30" type="email" name="email" email class="form-control"ngModel>
+            <div *ngIf="Email.touched && Email.invalid" >
+                <small *ngIf="Email.errors?.['required']">Email required</small>
+                <small *ngIf="Email.errors?.['email']">Invalid Email format</small>
+                </div>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label class="fs-5" for="password">Password</label><br>
+            <input type="password" name="password" class="form-control"ngModel>
+        </div>
+        <pre></pre>
+        <div class="d-grid">
+        <button class="btn btn-secondary fs-5" type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>
