@@ -1,10 +1,51 @@
-<div class="container">
-    <h2>Sign up</h2>
-    <input type="text" placeholder="Name" (ngmodel)="signupData.name">
-    <br>
-    <input type="email" placeholder="Email" (ngModel)="signupData.email">
-    <br>
-    <input type="password" placeholder="Password" (ngModel)="signupData.password">
-    <br>    
-    <button (click)="signup()">Sign up</button>
-</div>
+<form (ngSubmit)="onSubmit()" [formGroup]="signupForm">
+    <div class="container">
+        <h2>Sign up</h2>
+        <input type="text" placeholder="Name" formControlName="name">
+        <small class="error" *ngIf="f['name'].touched && f['name'].errors?.['required']">Name is required</small>
+        <pre></pre>
+        <input type="email" placeholder="Email" formControlName="email">
+        <small class="error" *ngIf="f['email'].touched && f['email'].errors?.['required']">Email is required</small>
+        <small class="error" *ngIf="f['email'].touched && f['email'].errors?.['email']">Enter a valid email</small>
+
+        <pre></pre>
+        <div class="password-container">
+            <input [type]="showPassword ? 'text':'password'" type="password" placeholder="Password"
+                formControlName="password">
+            <span class="fa-solid" *ngIf="f['password'].value" [class.fa-eye]="!showPassword"
+                [class.fa-eye-slash]="showPassword" (click)="togglePassword()">
+            </span>
+
+        </div>
+        <small class="error" *ngIf="f['password'].touched && f['password'].errors?.['required']">
+            Password is required
+        </small>
+        <small class="error" *ngIf="f['password'].touched && f['password'].errors?.['minlength']">
+            Password must be at least 8 characters
+        </small>
+
+        <pre></pre>
+        <div class="password-container">
+            <input [type]="showConfirmPassword ? 'text':'password'" type="password" placeholder="Confirm Password"
+                formControlName="confirmPassword">
+            <span class="fa-solid" *ngIf="f['confirmPassword'].value" [class.fa-eye]="!showConfirmPassword"
+                [class.fa-eye-slash]="showConfirmPassword" (click)="toggleConfirmPassword()"></span>
+        </div>
+
+        <small class="error" *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors?.['required']">
+            Confirm password is required
+        </small>
+
+        <small class="error" *ngIf="signupForm.errors?.['passwordMismatch'] && f['confirmPassword'].touched">
+            Password and Confirm Password must be same
+        </small>
+
+        <pre></pre>
+        <button type="submit">Sign up</button>
+        <pre></pre>
+        <h6>
+            Have an account?<a routerLink='/login'>Log in</a>
+        </h6>
+         
+    </div>
+</form>

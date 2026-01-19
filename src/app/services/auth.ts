@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LoginResDto } from '../utils/interfaces/auths/login-res-dto';
+import { UserResDto } from '../utils/interfaces/users/user-res-dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
-   private apiUrl = 'https://api.example.com';//backend API URL
+   private apiUrl = 'http://localhost:5038/api/Auth';//backend API URL
    constructor(private http: HttpClient){}
 
    //login 
@@ -24,6 +26,16 @@ export class Auth {
   //Get token
   getToken(){
     return localStorage.getItem('token');
+  }
+  //Get User
+  getUser(){
+
+    return localStorage.getItem('user');
+  }
+
+  //Set User
+  setUser(user:UserResDto){
+    return localStorage.setItem('user',JSON.stringify(user));
   }
   //logout
   logout(){

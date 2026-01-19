@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TextComponent } from './text-component';
+import { TblLogin } from './tbl-login';
 
-describe('TextComponent', () => {
-  let component: TextComponent;
-  let fixture: ComponentFixture<TextComponent>;
+describe('TblLogin', () => {
+  let component: TblLogin;
+  let fixture: ComponentFixture<TblLogin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TextComponent]
+      imports: [TblLogin]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TextComponent);
+    fixture = TestBed.createComponent(TblLogin);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -1,3 +1,38 @@
-<input type="email" (ngModel)="loginData.email" placeholder="Email">
-<input type="password" (ngModel)="loginData.password" placeholder="Password">
-<button (click)="login()">Login</button>
+<form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="container">
+        <h2>Log in</h2>
+        <input type="email" placeholder="Email" formControlName="email">
+        <small class="error" *ngIf="f['email'].touched && f['email'].errors?.['required']">Email is required</small>
+        <small class="error" *ngIf="f['email'].touched && f['email'].errors?.['email']">Enter a valid email</small>
+
+        <pre></pre>
+        <div class="password-container">
+            <input [type]="showPassword ? 'text':'password'" 
+            type="password" 
+            placeholder="Password" 
+            formControlName="password" />
+            
+            <span 
+            *ngIf="f['password'].value"
+            class="fa-solid"
+            [class.fa-eye]="!showPassword"
+            [class.fa-eye-slash]="showPassword"
+            (click)="togglePassword()"
+            >
+
+            </span>
+            <small class="error" *ngIf="f['password'].touched && f['password'].errors?.['required']">
+            Password is required
+            </small>
+            <h6><a routerLink='/tbl-login'>Forgot Password?</a></h6>
+
+        </div>
+        <pre></pre>
+        <button type="submit" >Log in</button>
+        <br>
+        
+        <pre></pre>
+        <h6>Don't have an account? <a routerLink='/signup'> Signup</a></h6>
+    </div>
+</form>
+        
