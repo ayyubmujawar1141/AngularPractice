@@ -3,7 +3,7 @@ import { Login } from '../login/login';
 import { Auth } from '../services/auth';
 import { UserResDto } from '../utils/interfaces/users/user-res-dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
+import { environment } from '../../environments/environment';
 @Component({
   selector: 'app-dashboard',
   imports: [],
@@ -14,7 +14,7 @@ export class Dashboard {
   constructor(private authService:Auth,private http:HttpClient){ 
     
   }
-  private apiUrl = '';//backend API URL
+  private url = environment.apiUrl;//backend API URL
   readonly token = localStorage.getItem('token');
  
   headers = new HttpHeaders({
@@ -30,7 +30,7 @@ export class Dashboard {
   
   sendRequest(){
     console.log("button is clicked");
-    return this.http.get('http://localhost:5038/api/Test/profile', { headers: this.headers }).subscribe(console.log);
+    return this.http.get(`${this.url}/Test/profile`, { headers: this.headers }).subscribe(console.log);
 
   }
 }

@@ -25,9 +25,9 @@ export class Login {
     private fb:FormBuilder
   ){
     this.loginForm = this.fb.group({
-      email:['',[Validators.required, Validators.email]],
-      password:['',[Validators.required, Validators.minLength(8)]]
-    })
+      email:['',[Validators.required, Validators.email, Validators.minLength(15), Validators.maxLength(50)]],
+      password:['',[Validators.required, Validators.minLength(6)]]
+    });
   }
   showPassword:boolean = false;
   togglePassword(){
@@ -35,13 +35,13 @@ export class Login {
   }
 
   onLogin(){
-    console.log(this.loginData);
+    console.log(this.loginForm.value);
     if(this.loginForm.invalid){
       this.loginForm.markAllAsTouched();
       return;
     }
 
-    this.authService.login(this.loginData).subscribe({
+    this.authService.login(this.loginForm.value).subscribe({
       next: (res:LoginResDto) => {
         this.authService.setUser(res.user);
         this.authService.saveToken(res.token);
@@ -49,7 +49,8 @@ export class Login {
         this.router.navigate(['/dashboard']);
       },
       error: (err)=>{
-        console.log(err.error);
+        const validationErrors = err.error?.errors;
+  console.log("Validation errors:", validationErrors);
         alert('Invalid credentials'); 
       }
     });

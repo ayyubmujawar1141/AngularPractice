@@ -1,4 +1,4 @@
-<form [formGroup]="tblForm" (ngSubmit)="onSendLink()">
+<form [formGroup]="tblForm">
     <div class="container">
         <i id="lock" class="fa-solid fa-lock"></i>
         <h2>Trouble logging in?</h2>
@@ -12,7 +12,7 @@
                 Enter a valid email
             </small>
         </div><pre></pre>
-            <button type="submit">Send login link</button>
+            <button type="submit" (click)="onSendLink()">Send login link</button>
             <div class="or-line">
                 <span>OR</span>
             </div>
