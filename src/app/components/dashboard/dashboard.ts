@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Login } from '../login/login';
-import { Auth } from '../services/auth';
-import { UserResDto } from '../utils/interfaces/users/user-res-dto';
+import { UserResDto } from '../../utils/interfaces/users/user-res-dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { Auth } from '../../services/auth';
+import { environment } from '../../../environments/environment';
 @Component({
   selector: 'app-dashboard',
   imports: [],
@@ -11,9 +10,9 @@ import { environment } from '../../environments/environment';
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
-  constructor(private authService:Auth,private http:HttpClient){ 
-    
-  }
+  
+  constructor(private authService:Auth,private http:HttpClient){}
+
   private url = environment.apiUrl;//backend API URL
   readonly token = localStorage.getItem('token');
  
@@ -33,4 +32,5 @@ export class Dashboard {
     return this.http.get(`${this.url}/Test/profile`, { headers: this.headers }).subscribe(console.log);
 
   }
+  
 }

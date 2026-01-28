@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&display=swap');
+
+
+.container{
+    justify-content: center;
+    width: 450px;
+    background-color:rgba(208, 203, 204, 0.12);
+    margin-top: 70px;
+    min-height: 64vh;
+    /* border: 1px solid rgb(148, 32, 32); */
+    border-radius: 2px;
+    box-shadow: 0 0 4px rgb(216, 234, 236);
+    background: linear-gradient(to right, rgb(216, 234, 236), rgb(167, 226, 247));
+    -webkit-background-clip:text;
+    background-clip: border-box;
+    color: transparent;
+
+}
+
+.container h2{
+    text-align: center;
+    padding-top: 6%;
+    padding-bottom: 2%;
+    margin-bottom: 10px;
+    color: black;
+    font-family:"Bebas Neue", sans-serif;
+    font-size: 40px;
+    font-style: normal;}
+input{
+    margin: 0;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    
+    border: none;
+    font-size: 20px;
+    
+}
+button{
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border:none;
+    background-color:rgb(162, 84, 28);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    height: 45px;
+    font-size: larger;
+    
+}
+button:hover{
+    background-color: rgb(68, 36, 12);
+}
+.password-container{
+    position: relative;
+    width:100%;
+}
+.password-container input[type="password"]{
+    width: 100%;
+    padding-right: 30px;
+}
+.password-container span{
+    position: absolute;
+    right: 12px;
+    top:50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: black;
+}
+.error {
+  color: rgb(0, 0, 0);
+  height: 2px;
+  font-size: 12px;
+  font-weight:lighter;
+  
+  display: block;
+  /* margin-bottom: 10px; */
+}
+.error-space{
+  min-height: 18px;  /* reserves space always */
+  margin-bottom: 12px;
+}
+h6{
+    color: black;
+    margin-top: 1px;
+}
+h6 a {
+  margin-left: 6px;
+  cursor: pointer;
+  color: black;
+  text-decoration-color: black;
+}
+.footer{
+  background: #111;
+  color: #fff;
+  padding: 15px;
+  margin-bottom: 2%;
+}
+

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Auth } from '../services/auth';
+import { Auth } from '../../services/auth';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Signup } from '../signup/signup';
-import { LoginResDto } from '../utils/interfaces/auths/login-res-dto';
+import { LoginResDto } from '../../utils/interfaces/auths/login-res-dto';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 import { NgIf } from '@angular/common';
 @Component({

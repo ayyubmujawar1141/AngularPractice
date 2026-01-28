@@ -1,0 +1,38 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="newPwdForm">
+    <div class="container" #container>
+        <h2>Enter &nbsp;new &nbsp;password</h2>
+        <div class="password-container">
+            <input [type]="showPassword ? 'text':'password'" type="password" placeholder="New password"
+                formControlName="password">
+            <span class="fa-solid" *ngIf="f['password'].value" [class.fa-eye]="!showPassword"
+                [class.fa-eye-slash]="showPassword" (click)="togglePassword()">
+            </span>
+        </div>
+        <div class="error-space">
+            <small class="error" *ngIf="f['password'].touched && f['password'].errors?.['required']">
+                Password is required
+            </small>
+            <small class="error" *ngIf="f['password'].touched && f['password'].errors?.['minlength']">
+                Password must be at least 8 characters
+            </small>
+        </div>
+        <div class="password-container">
+            <input [type]="showConfirmPassword ? 'text':'password'" type="password" placeholder="Confirm password"
+                formControlName="confirmPassword">
+            <span class="fa-solid" *ngIf="f['confirmPassword'].value" [class.fa-eye]="!showConfirmPassword"
+                [class.fa-eye-slash]="showConfirmPassword" (click)="toggleConfirmPassword()"></span>
+        </div>
+
+        <div class="error-space">
+            <small class="error" *ngIf="f['confirmPassword'].touched && f['confirmPassword'].errors?.['required']">
+                Confirm password is required
+            </small>
+            <small class="error" *ngIf="newPwdForm.errors?.['passwordMismatch'] && f['confirmPassword'].touched">
+                Password and Confirm Password must be same
+            </small>
+        </div>
+
+        <button type="submit">Submit</button>
+
+    </div>
+</form>

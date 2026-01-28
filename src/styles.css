@@ -1,5 +1,8 @@
 body{
-    background-color: #d5f7ff !important;
+    background: linear-gradient(to right, rgb(196, 230, 230), rgb(32, 113, 148));
+    -webkit-background-clip:text;
+    background-clip: border-box;
+    color: transparent;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 

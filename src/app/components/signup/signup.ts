@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { Auth } from '../services/auth';
+import { Auth } from '../../services/auth';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import{ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
@@ -13,6 +13,7 @@ import { NgIf } from '@angular/common';
   styleUrl: './signup.css',
 })
 export class Signup {
+  
   signupData:any={};
   ngOnInit(){
     this.signupForm.valueChanges.subscribe(val => {
@@ -52,15 +53,15 @@ export class Signup {
       this.signupForm.markAllAsTouched();
       return;
     }
-    console.log(this.signupData);
-    this.authService.signup(this.signupData).subscribe({
+    console.log(this.signupForm.value);
+    debugger;
+    this.authService.signup(this.signupForm.value).subscribe({
       next: ()=>{
         alert('Signup successful! Please login.');
         this.router.navigate(['/login']);
       },
       error: (err)=>{
         console.log(err.error);
-        console.log("Validation errors:",err.error.errors);
         alert('Signup failed. Please try again.');
       }
     });

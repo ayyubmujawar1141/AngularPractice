@@ -1,0 +1,30 @@
+<form [formGroup]="tblForm" (ngSubmit)="SendOtp()">
+    <div class="container">
+        <i id="lock" class="fa-solid fa-lock"></i>
+        <h2>Trouble logging in?</h2>
+        <p>Enter your email and we'll send<br>you a link to get back into your account.</p>
+        <input #emailInput type="email" placeholder="Email" formControlName="email">
+        <div *ngIf="f['email']?.touched && f['email']?.invalid"></div>
+        <div class="error-space">
+            <small class="error" *ngIf="f['email'].touched && f['email'].errors?.['required']">
+                Email is required
+            </small>
+            <small class="error" *ngIf="f['email'].touched && f['email'].errors?.['email']">
+                Enter a valid email
+            </small>
+        </div>
+        <button type="submit" [disabled]="isLoading">{{ isLoading ? 'Sending...' : 'Send OTP' }}
+
+        </button>
+
+
+        <div class="or-line">
+            <span>OR</span>
+        </div>
+        <h6>
+            <a routerLink='/signup'>Create a new account</a>
+        </h6>
+        <button routerLink='/login'>Back to login</button>
+
+    </div>
+</form>

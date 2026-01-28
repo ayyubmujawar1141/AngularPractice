@@ -1,33 +1,51 @@
 #lock{
+    padding-top: 8px;
     font-size:70px;
     margin-left: 40%;
+     background: linear-gradient(to right, rgb(47, 50, 50), rgb(148, 32, 32));
+    -webkit-background-clip:text;
+    background-clip:text ;
+    margin-top: 2%;
+    color: #000000;
+    color: transparent;
+
 
 }
 .container{
-    width: 30%;
-    background-color: rgba(208, 203, 204, 0.12);
-    padding: 20px;
-    margin:100px auto;
-    border-radius: none;
-    box-shadow: 0 0 10px rgb(43, 38, 38);
+    justify-content: center;
+    width: 450px;
+    background-color:rgba(208, 203, 204, 0.12);
+    margin-top: 70px;
+    height: 480px;
+    /* border: 1px solid rgb(148, 32, 32); */
+    border-radius: 2px;
+    box-shadow: 0 0 4px rgb(216, 234, 236);
+    background: linear-gradient(to right, rgb(216, 234, 236), rgb(167, 226, 247));
+    -webkit-background-clip:text;
+    background-clip: border-box;
+    color: transparent;
+
 }
 .container h2{
     text-align: center;
     margin-top: 10px;
     margin-bottom: 20px;
+    color: black;
 }
 .container p{
     text-align: center;
     margin-bottom: 20px;
+    color: #000000;
 }
 .container input{
     margin: 0;
     padding: 5px;
     width: 100%;
     border-radius: 5px;
-    background-color: rgb(213, 229, 243);
     border: none;
     font-size: larger;
+    justify-content: center;
+    display: flex;
 }
 .container button{
     width: 100%;
@@ -63,6 +81,7 @@
   align-items: center;
   width: 100%;
   margin: 15px 0;
+  color: black;
 }
 
 .or-line::before,
@@ -78,4 +97,16 @@
   font-size: 14px;
   color: #000000;
   font-weight: 600;
+}
+.error-space{
+  min-height: 18px;  /* reserves space always */
+  margin-bottom: 12px;
+  
+}
+.error {
+  color: black;
+  font-size: 12px;
+  font-weight:lighter;
+  display: block;
+  /* margin-bottom: 10px; */
 }
