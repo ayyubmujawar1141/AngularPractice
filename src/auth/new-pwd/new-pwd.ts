@@ -3,10 +3,11 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Auth } from '../../services/auth';
 import { SharedService } from '../../services/shared-service';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-new-pwd',
-  imports: [FormsModule, NgIf, ReactiveFormsModule],
+  imports: [FormsModule, NgIf, ReactiveFormsModule, RouterLink],
   templateUrl: './new-pwd.html',
   styleUrl: './new-pwd.css',
 })
@@ -16,7 +17,6 @@ export class NewPwd {
 
   ngAfterViewInit() {
     const height = this.container.nativeElement.offsetHeight;
-    console.log(height);
   }
 
   newPwdForm !: FormGroup;

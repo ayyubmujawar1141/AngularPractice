@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmailNotFoundDialog } from './email-not-found-dialog';
+import { AppLayout } from './app-layout';
 
-describe('EmailNotFoundDialog', () => {
-  let component: EmailNotFoundDialog;
-  let fixture: ComponentFixture<EmailNotFoundDialog>;
+describe('AppLayout', () => {
+  let component: AppLayout;
+  let fixture: ComponentFixture<AppLayout>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EmailNotFoundDialog]
+      imports: [AppLayout]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(EmailNotFoundDialog);
+    fixture = TestBed.createComponent(AppLayout);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { Login } from './components/login/login';
 import { Signup } from './components/signup/signup';
-import { Dashboard } from './components/dashboard/dashboard';
+import { Dashboard } from '../app/components/dashboard/dashboard';
 import { TblLogin} from './components/tbl-login/tbl-login';
 import { OtpService} from './components/otp-service/otp-service'
 import { NewPwd } from './components/new-pwd/new-pwd';
